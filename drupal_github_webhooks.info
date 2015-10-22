@@ -1,0 +1,11 @@
+; $Id: cms.info,v 1.0 2010/07/30 00:46:06 Quentin.Yang Exp $
+name = Webhooks for Github
+description = Integrate github web hooks with Drupal.
+package = Github Webhooks
+core = 7.x
+
+; Information added by Quentin.Yang packaging script on 2010-07-30
+version = "7.x-1.0"
+project = "Github Webhooks"
+datestamp = "1280465486"
+

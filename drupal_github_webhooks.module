@@ -1,0 +1,40 @@
+<?php
+/**
+ * hook_form_alter()
+ * 
+ * @param unknown_type $form
+ * @param unknown_type $form_state
+ * @param unknown_type $form_id
+ */
+function drupal_github_webhooks_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'blog_node_form') {
+    //dpr($form );
+    //菜单设置
+    $form ['menu'] ['#access'] = FALSE;
+    //输入格式
+
+    
+    //评论设置
+    $form ['comment_settings'] ['comment'] ['#default_value'] = 2;
+    //修订版本    
+    $form ['revision_information'] ['#access'] = FALSE;
+    //URL路径设置
+    $form ['path'] ['#access'] = FALSE;
+    //编著信息
+    $form ['author'] ['#collapsible'] = FALSE;
+    $form ['author'] ['#collapsed'] = FALSE;
+  }
+}
+
+function drupal_github_webhooks_url_inbound_alter(&$path, $original_path, $path_language) {
+    // Create the path user/me/edit, which allows a user to edit their account.
+    echo $path . 'inbound ';die();
+    if (preg_match('|test|', $path, $matches)) {
+        echo $path . 'Test';
+//        global $user;
+        //$path = 'user/' . $user->uid . '/edit' . $matches[1];
+    }
+}
+function drupal_github_webhooks_url_outbound_alter(&$path, &$options, $original_path) {
+    echo 'test out ';die();
+}
